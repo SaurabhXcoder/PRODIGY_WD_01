@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Start And Stop Count</title>
+<style>
+	span {
+  background-color: olivedrab;
+  padding: 10px 20px;
+  display: inline-block;
+  color: white;
+  font-family: arial black;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+#output {
+  position: absolute;
+  top: 100px;
+  font-family: arial black;
+}
+
+</style>
+</head>
+<body>
+<div class='box'>
+  <span id='start'>Start Count</span>
+  <span id='pause'>Stop Count</span>
+  <span id='restore'>Reset</span>
+</div>
+
+<h1 id='output'>Output: 0</h1>
+<script>
+	
+	(i = 0), (a = 0);
+
+start.onclick = () => {
+  if (a == 0) {
+    a = a + 1;
+    c = setInterval(start, 100);
+    function start() {
+      output.innerHTML = "Output: " + i;
+      i++;
+    }
+  }
+};
+
+pause.onclick = () => {
+  if (a == 1) {
+    a = a - 1;
+    clearInterval(c);
+  }
+};
+
+restore.onclick = () => {
+  clearInterval(c);
+  i = 0;
+  a = 0;
+  output.innerHTML = "Output: " + 0;
+};
+
+</script>
+</body>
+</html>
